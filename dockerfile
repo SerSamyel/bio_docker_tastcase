@@ -68,4 +68,5 @@ RUN git clone https://github.com/gt1/biobambam2.git biobambam2 \
     && autoreconf -i -f \
     && ./configure \
     && make install \
+    && ldconfig \
     && cd ..
