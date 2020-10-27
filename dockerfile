@@ -60,6 +60,8 @@ RUN git clone https://github.com/gt1/libmaus2.git libmaus2 \
     && ./configure \
     && make \
     && make install \
+    && echo "/usr/local/lib" > /etc/ld.so.conf.d/maus.conf \
+    && ldconfig \
     && cd ..
 
 # build biobambam2
@@ -68,5 +70,4 @@ RUN git clone https://github.com/gt1/biobambam2.git biobambam2 \
     && autoreconf -i -f \
     && ./configure \
     && make install \
-    && ldconfig \
     && cd ..
