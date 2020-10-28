@@ -28,6 +28,9 @@ WORKDIR /SOFT/
 RUN git clone https://github.com/ebiggers/libdeflate.git libdeflate \
     && cd libdeflate \
     && make \
+    && make install \
+    && echo "/usr/local/lib" > /etc/ld.so.conf.d/maus.conf \
+    && ldconfig \
     && cd ..
 
 #build htslib
@@ -39,6 +42,7 @@ RUN git clone https://github.com/samtools/htslib.git htslib \
     && ./configure \
     && make \
     && make install \
+    && ldconfig \
     && cd ..
 
 # build samtools
@@ -60,7 +64,6 @@ RUN git clone https://github.com/gt1/libmaus2.git libmaus2 \
     && ./configure \
     && make \
     && make install \
-    && echo "/usr/local/lib" > /etc/ld.so.conf.d/maus.conf \
     && ldconfig \
     && cd ..
 
