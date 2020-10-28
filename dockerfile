@@ -34,7 +34,6 @@ RUN git clone https://github.com/ebiggers/libdeflate.git libdeflate \
     && cd ..
 
 #build htslib
-
 RUN git clone https://github.com/samtools/htslib.git htslib \
     && cd htslib \
     && autoheader \
